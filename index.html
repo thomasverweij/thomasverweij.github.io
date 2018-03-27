@@ -29,15 +29,27 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
         a:hover {
             text-decoration: underline;
         }
-        pre{
-            margin:0 0 20px 0;
+        a:focus {
+            border:0;
+        }
+        a.header:hover {
+            text-decoration: none;
+        }
+        a.header {
+            border:0;
+            color:inherit;
+            text-decoration: none;
+        }
+        ul {
+            margin: 0 0 20px 0;
         }
         h1,h2,h3{
             margin: 0 0 20px 0;
         }
+
         h3,h4,h5,h6 {
-            color:#666666;
-            margin: 0 0 20px 0;
+            color:#000000;
+            margin: 0 0 5px 0;
         }
         h1 {
             font-family: Georgia, serif;
@@ -45,6 +57,7 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
             font-weight: bold;
             margin-bottom: 0px;
         }
+
         #mail {
             margin: 0 0 20px 0;
             font-family: monospace;
@@ -54,32 +67,52 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
             margin:0 auto
         }
         pre{
+            margin:0 0 20px 0;
             padding:15px;
             background:#f8f8f8;
             overflow-x:auto
         }
-
+        span.code {
+            background:#f8f8f8;
+            font-family: monospace;
+        }
         header{
             width:270px;
             float:left;
             position:fixed;
         }
+        header ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }        
 
         section{
+            margin-top:10px;
             max-width:800px;
             float:right;
             padding-bottom:50px
         }
 
         .article  {
-            margin: 0 0 30px 0;
+            margin: 0 0 20px 0;
+            border-bottom:1px solid #e5e5e5;
         }
         .article_data {
             font-family: monospace;
-            color: #999999;
+            font-weight: normal;
+    /*        color: #999999;*/
             float: right;
-            position: relative;
-            top:10px;
+            margin: 0 0 0 0;
+            padding:2px;
+        }
+        .article_data::before {
+            content: "\221e  ";
+        }
+        .article_data:hover {
+            text-decoration: none;
+            background: #f8f8f8;
+            font-family: monospace;
         }
 
         footer{
@@ -105,6 +138,13 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
                 max-width:800px;
                 margin:0 auto 20px auto;
             }
+            header ul {
+                text-align: center;
+            }
+            header li {
+                display: inline;
+                margin: 0 10px 0 0;
+            }
 
             #mail {
                 text-align: center;
@@ -112,7 +152,7 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
 
             section {
                 border:1px solid #e5e5e5;
-                border-width:1px 0;
+                border-width:1px 0 0 0;
                 padding:20px 0;
             }
 
@@ -127,41 +167,191 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
     </style>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper" id="wrapper">
         <header>
-        <h1>Thomas Verweij</h1>
+        <h1><a href="index.html" class="header">Thomas Verweij</a></h1>
         <div id="mail">&#x74;&#x76;&#x65;&#x72;&#x77;&#x65;&#x69;&#x6a;&#x40;&#x70;&#x6d;&#x2e;&#x6d;&#x65;</div>
         <p>
-        This is a blog about fungibly conceptualizing scalable cross-functional technologies. I Appropriately predominate seamless methodologies and corporate ideas using authoritatively cultivateded synergistic <a href="http://atrixnet.com/bs-generator.html" target="_blank">materials</a>.</p><p>
-        
-            <a href="https://github.com/fluffhoofd" target="_blank">github</a><br/>
-            <a href="https://soundcloud.com/fluffhoofd" target="_blank">soundcloud</a>
+        This is a blog about fungibly conceptualizing scalable cross-functional technologies. I appropriately predominate seamless methodologies and corporate ideas using authoritatively cultivateded synergistic <a href="http://atrixnet.com/bs-generator.html" target="_blank">materials</a>.</p><p>
+        <ul>
+            <li><a href="#20-03-2018">cheatsheet</a></li>
+            <li><a href="#15-02-2018">links</a></li>
+            <li><a href="https://github.com/fluffhoofd" target="_blank">github &#10548;</a></li>
+            <li><a href="https://soundcloud.com/fluffhoofd" target="_blank">soundcloud &#10548;</a></li>
+        </ul>
         </p>
         </header>
         <section id="section">
-            <div class="article"><div class="article_data">03-20-2018</div>
+<!--
+<div class="article"><a href="#dd-mm-yyy" class="article_data" id="dd-mm-yyyy">dd-mm-yyyy</a>
+<h2>Title</h2>
+    <p>
+    </p>
+</div>
+-->            
+            <div class="article"><a href="#27-03-2018" class="article_data" id="27-03-2018">27-03-2018</a>
+                <h2>Self-hosting a password manager with pass</h2>
+
+
+<p><a href="https://www.passwordstore.org/" target="_blank">Pass</a> is a simple CLI tool for password management. It was brought to life by <a href="https://www.zx2c4.com/" target="_blank">zx2c4</a> (also known for <a href="https://www.wireguard.com/" target="_blank">wireguard</a>). The following reasons are what makes pass great: </p>
+<ul>
+        <li>OpenPGP encryption using GPG</li>
+        <li>Git integration</li>
+        <li>Open source</li>
+        <li>Scriptable</li>
+        <li>Client applications for <a href="https://mssun.github.io/passforios/" target="_blank">iOS</a> and <a href="https://github.com/zeapo/Android-Password-Store#readme" target="_blank">Android</a></li>
+</ul>
+<p>
+With pass you are essentially maintaining encrypted files located at <span class="code">~/.password-store</span>. Each file contains a password and is encrypted with your own private key using GPG. You are not restricted in using your own naming structure so you can group your passwords by website, application or category.
+</p><p>
+We will go through the steps required to set up pass with a remote git repository on a private server. We need a remote repository so we can use a pass client from other devices like a smartphone. If you don't have a private server you can also make a private git repository on <a href="https://bitbucket.org/" target="_blank">bitbucket</a> or <a href="https://about.gitlab.com/" target="_blank">gitlab</a>.<br/>
+But first lets see some basic usage of pass.</p>
+
+<h3>Usage</h3>
+<p>First you need to set up a password-store:</p>
+<pre>
+$ pass init &lt;gpg key id&gt;
+</pre>
+
+<p>Inserting a password. This will create a file <span class="code">user@email.com.gpg</span> in folder <span class="code">example.com</span>. Pass will ask for the password and then commit changes (if git is set up):</p>
+<pre>
+$ pass insert example.com/user@email.com
+mkdir: created directory '/home/user/.password-store/example.com'
+Enter password for example.com/user@email.com: 
+Retype password for example.com/user@email.com: 
+[master 68f99d3] Add given password for example.com/user@email.com to store.
+1 file changed, 0 insertions(+), 0 deletions(-)
+create mode 100644 example.com/user@email.com.gpg
+</pre>
+<p>List all or specific password files with <span class="code">pass ls</span> (or simply <span class="code">pass</span> for everything):</p>
+<pre>
+$ pass ls
+Password Store
+├── example.com
+│   └── user@email.com
+├── twitter.com
+│   └── user
+│   └── user2
+...
+</pre>
+<p>To show password (-c to copy to clipboard. Passwords are erased from clipboard after 45 seconds):</p>
+<pre>
+$ pass show -c example.com/user@email.com 
+Copied example.com/user@email.com to clipboard. Will clear in 45 seconds.
+</pre>
+<p>To edit a password, or to add additional information to the password file, you can use pass edit. This will open the password file with <span class="code">$EDITOR</span>. To ensure no traces of the unencrypted password file will be left on the harddrive, all editing will take place in memory using the <span class="code">/dev/shm</span> filesystem. </p>
+<pre>
+$ pass edit example.com/user@email.com
+</pre>
+<p>You can add more information to the file like otp tokens, answers to security questions, etc... but keep the main password on the first line so it will output correctly when pass show is invoked.</p>
+
+<p>Besides adding, removing and editing passwords, pass is also capable of generating strong passwords: </p>
+<pre>
+$ pass generate example.com/user@email.com 20
+An entry already exists for example.com/user@email.com. Overwrite it? [y/N] y
+[master bb874fe] Add generated password for example.com/user@email.com.
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rewrite example.com/user@email.com.gpg (100%)
+The generated password for example.com/user@email.com is:
+A!eVh*"2(rA{ag;-+,et
+</pre>
+
+<h3>Setting it up</h3>
+
+<p>If you want to start using pass, you will need a pgp private key. If you don't have one, generate a new keypair with:</p>
+<pre>
+$ gpg --full-generate-key
+</pre>
+
+<p>It will ask you some questions about which keysize and cipher to use. 3072 bits RSA is a good choice here. Furthermore, enter your name and email when asked for it. Before gpg starts generating your key, it will also ask you for a strong password to unlock your key. This will act as your master password for your password store. </p><p>
+When the keypair is succesfully created, it will be added to the gpg keyring: </p>
+
+<pre>
+$ gpg --list-keys
+gpg: checking the trustdb
+gpg: marginals needed: 3  completes needed: 1  trust model: pgp
+gpg: depth: 0  valid:   2  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 2u
+/home/user/.gnupg/pubring.kbx
+-------------------------------
+pub   rsa3072 2018-03-27 [SC]
+      94955B4114DAF05E2CCE325A11FA8BE90AB7087F
+uid           [ultimate] user (pass) <user@example.com>
+sub   rsa3072 2018-03-27 [E]
+</pre>
+<p>Now we can set up pass using the key-id of the key we created.</p>
+<pre>
+$ pass init 94955B4114DAF05E2CCE325A11FA8BE90AB7087F
+</pre>
+<p>Next, we will create a new git repository in our .password-store.</p>
+<pre>
+$ pass git init
+</pre>
+<p>All changes to the .password-store will automatically be git-added and git-committed when using pass.</p>
+<h3>Central git server</h3>
+<p>For the next step I will assume you have ssh access to a private server. <br/>Log in to your server and create a bare git repository:
+</p>
+<pre>
+$ git init --bare ~/.password-store
+</pre>
+<p>This allows us to add the repository as a remote repository on our local machine</p>
+<pre>
+$ pass git remote add origin ssh://user@123.234.345.456:22/home/user/.password-store
+</pre>
+
+<p>We can now push our commits to remote. (use -u to always track the master branch when git-pulling)</p>
+<pre>
+$ pass git push -u
+</pre>
+<p>Now you have a central git server with your encrypted password-store. If you want to access your password-store from other clients, you need to configure the client with the following things:
+</p>
+<ul>
+<li>gpg private key</li>
+<li>access to the git repository</li>
+</ul>
+
+<p>Exporting your private key to a file is possible with the following command</p>
+<pre>
+$ gpg --armor --export-secret-keys <key-id> > private.gpg
+</pre>
+<p>
+Now you can copy private.gpg over to your device. You will then need to import the key with a pgp-agent (like OpenKeychain for android).
+When it comes to accessing your remote repository, both the iOS and the Android clients allow you to generate the ssh keys.
+</p>
+<h3>Conclusion</h3>
+<p>
+Pass is nice if you want to be in control over your passwords (not using password management is not an option) and don't want to rely on third-party services. If you are comfortable with working from the command line, it won't take you long to get used to pass.
+</p>
+<h4>More info</h4>
+<ul>
+    <li><a href="https://www.passwordstore.org/#other">https://www.passwordstore.org/#other</a></li>
+    <li><a href="https://wiki.archlinux.org/index.php/Pass">https://wiki.archlinux.org/index.php/Pass</a></li>
+    <li><a href="https://wiki.archlinux.org/index.php/GnuPG">https://wiki.archlinux.org/index.php/GnuPG</a></li>
+    </ul>
+
+            </div>
+            <div class="article"><a href="#20-03-2018-1" class="article_data" id="20-03-2018-1">20-03-2018</a>
                 <h2>Scapy</h2>
                 <p>
                 Scapy is a nice framework for python which lets you manipulate, build, send and receive network packets. Here is an introductory writeup I made about it (in Dutch, sorry (translation coming soon...(or not (idk))). </p><p><a href="https://fluffhoofd.github.io/scapy.pdf">scapy.pdf</a></p>
                 </p>
             </div>
-        <div class="article"><div class="article_data">03-20-2018</div>
+        <div class="article"><a href="#20-03-2018" class="article_data" id="20-03-2018">20-03-2018</a>
         <h2>Cheatsheet</h2>
 <p>This is just a list of useful commands or code.</p>
-<b>bash tcp socket</b>
+<h4>bash tcp socket</h4>
 <pre>
 exec 5<>/dev/tcp/192.168.4.112/8080
 cat <&5
 </pre>
-<b>bash portscan</b>
+<h4>bash portscan</h4>
 <pre>
 for ((x=1;x<=1000;x++));do (echo >/dev/tcp/127.0.0.1/$x) &>/dev/null && echo $x open; done
 </pre>
-<b>bash password generator</b>
+<h4>bash password generator</h4>
 <pre>
-head /dev/urandom | tr -dc "a-zA-Z0-9" | head -c 20
+echo $(head /dev/urandom | tr -dc "a-zA-Z0-9" | head -c 30)
 </pre>
-<b>bash mangling</b>
+<h4>bash mangling</h4>
 <pre>
 varname=file.tar.gz
 echo ${varname%.*}      # file.tar
@@ -169,55 +359,55 @@ echo ${varname%%.*}     # file
 echo ${varname#*.}      # tar.gz
 echo ${varname##*.}     # gz
 </pre>
-<b>grub privilege escalation</b>
+<h4>grub privilege escalation</h4>
 <pre>
 kernel parameters: init=/bin/bash
 boot linux and run: mount -o remount,rw /
 </pre>
-<b>curl upload file</b>
+<h4>curl upload file</h4>
 <pre>
 curl -T [file] -u [user] [url]
 </pre>
-<b>get public IP</b>
+<h4>get public IP</h4>
 <pre>
 curl ipinfo.io
 </pre>
-<b>nmap scripts</b>
+<h4>nmap scripts</h4>
 <pre>
 locate nmap/scripts | grep [keyword]
 </pre>
-<b>netcat tcp proxy</b>
+<h4>netcat tcp proxy</h4>
 <pre>
 mkfifo pipe
 nc -nlvp 12345 < pipe | nc 192.168.168.192 80 > pipe
 </pre>
-<b>ssh SOCKS proxy:</b>
+<h4>ssh SOCKS proxy:</h4>
 <pre>
 ssh -D localhost:port [user@]server 
 </pre>
-<b>ssh remote port forward</b>
+<h4>ssh remote port forward</h4>
 <pre>
 ssh -R 8080:localhost:80 [user@]server
 </pre>
-<b>ssh local port forward</b>
+<h4>ssh local port forward</h4>
 <pre>
 ssh -L 8080:localhost:80 [user@]server
 </pre>
-<b>ssh flags</b>
+<h4>ssh flags</h4>
 <pre>
 -i  keyfile
 -f  background
 -N  only port forwarding, no commands
 </pre>
-<b>ssh create key</b>
+<h4>ssh create key</h4>
 <pre>
 ssh-keygen
 </pre>
-<b>ssh upload key</b>
+<h4>ssh upload key</h4>
 <pre>
 ssh-copy-id -i [file] [user@]server
 </pre>
-<b>linux wireless</b>
+<h4>linux wireless</h4>
 <pre>
 sudo iw dev wlan1 scan | grep -Ei 'ssid|rsn'
 
@@ -227,17 +417,17 @@ wpa_supplicant -i [dev] -B -c [passwordfile]
 
 dhclient [dev]
 </pre>
-<b>screenlock (pixelated screenshot)</b>
+<h4>screenlock (pixelated screenshot)</h4>
 <pre>
 scrot '%Y-%m-%d_$wx$h.png' -e 'convert $f -scale 5% -scale 2000% lol.png && rm $f && i3lock -u -i lol.png && rm lol.png'
 </pre>
-<b>python http-server</b>
+<h4>python http-server</h4>
 <pre>
 python2 -m SimpleHTTPServer [port]
 -or-
 python3 -m http.server [port]
 </pre>
-<b>python socket client</b>
+<h4>python socket client</h4>
 <pre>
 import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -245,7 +435,7 @@ s.connect((127.0.0.1, 80))
 print(s.recv(1024))
 s.close  
 </pre>
-<b>python socket server</b>
+<h4>python socket server</h4>
 <pre>
 import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -256,33 +446,43 @@ while True:
     c.send('message')
     c.close()
 </pre>
-<b>python shell</b>
+<h4>python shell</h4>
 <pre>
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 </pre>
-<b>find SUID/SGID files</b>
+<h4>find SUID/SGID files</h4>
 <pre>
 find ~ -perm /6000 -exec ls -ldb {} \;
 </pre>
-<b>list status of git repos</b>
+<h4>list status of git repos</h4>
 <pre>
 find ~ -name ".git" 2> /dev/null | sed 's/\/.git/\//g' | awk '{print "-------------------------\n\033[1;32mGit Repo:\033[0m " $1; system("git --git-dir="$1".git --work-tree="$1" status")}'
 </pre>
-<b>chromium flags for security testing</b>
+<h4>chromium flags for security testing</h4>
 <pre>
 chromium --proxy-server="localhost:8080" --incognito --disable-extensions --disable-xss-auditor
 </pre>
-<b>PHP filter</b>
+<h4>PHP filter</h4>
 <pre>
 php://filter/convert.base64-encode/resource=index.php
 </pre>
-<b>get cheatsheets</b>
+<h4>get cheatsheets</h4>
 <pre>
 curl cheat.sh
-</pre>
+</pre></div> 
 
-
-        </div> 
+<div class="article"><a href="#15-02-2018" class="article_data" id="15-02-2018">15-02-2018</a>
+<h2>Links</h2>
+    <p>
+        <ul>
+            <li>todo &#10548;</li>
+            <li>todo &#10548;</li>
+            <li>todo &#10548;</li>
+            <li>todo &#10548;</li>
+            <li>todo &#10548;</li>
+        </ul>
+    </p>
+</div>
         </section>
         <footer>
         </footer>
