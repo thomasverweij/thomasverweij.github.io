@@ -85,7 +85,13 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
             list-style-type: none;
             margin: 0;
             padding: 0;
-        }        
+        }      
+
+        ul.posts {
+            margin: 0;
+            padding: 0;
+            font-size: 10px;
+        }         
 
         section{
             margin-top:10px;
@@ -95,7 +101,8 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
         }
 
         .article  {
-            margin: 0 0 20px 0;
+            padding: 0 0 80px 0;
+            margin: 0 0 80px 0;
             border-bottom:1px solid #e5e5e5;
         }
         .article_data {
@@ -172,15 +179,25 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
         <h1><a href="index.html" class="header">Thomas Verweij</a></h1>
         <div id="mail">&#x74;&#x76;&#x65;&#x72;&#x77;&#x65;&#x69;&#x6a;&#x40;&#x70;&#x6d;&#x2e;&#x6d;&#x65;</div>
         <p>Hi! Welcome to my blog. Topics I am interested in include programming, security, linux, music and philosophy. I don't post much, but that may change in the future. <p>
+                <p></p>
+        <p><img src="https://www.hackthebox.eu/badge/image/25984" alt="Hack The Box"></p>
+        <p>
         <ul>
-            <li><a href="#20-03-2018">cheatsheet</a></li>
-            <li><a href="#15-02-2018">links</a></li>
             <li><a href="https://github.com/fluffhoofd" target="_blank">github &#10548;</a></li>
             <li><a href="https://soundcloud.com/fluffhoofd" target="_blank">soundcloud &#10548;</a></li>
         </ul>
         </p>
-        <p></p>
-        <p><img src="https://www.hackthebox.eu/badge/image/25984" alt="Hack The Box"></p>
+
+        <p>
+            <ul class="posts">
+            <li><a href="#11-08-2018">A proof that my cat is the master of the universe</a></li>
+            <li><a href="#27-03-2018">Self-hosting a password manager with pass</a></li>
+            <li><a href="#20-03-2018-1">Scapy</a></li>
+            <li><a href="#20-03-2018">cheatsheet</a></li>
+            <li><a href="#15-02-2018">links</a></li>
+            </ul>
+        </p>
+
         </header>
         <section id="section">
 <!--
@@ -190,6 +207,39 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
     </p>
 </div>
 -->            
+
+<div class="article"><a href="#11-08-2018" class="article_data" id="11-08-2018">11-08-2018</a>
+<h2>A proof that my cat is the master of the universe</h2>
+    <p>
+        Take the following proposition P:<br/><br/>
+        (P)  <i>If P is true, then my cat is the master of the universe.</i>
+        <br/><br/>This statement doesn't seem to be necessarily true. But we can at least consider the possibility of it being true. What if it is? If P is true then P being true entails my cat being the the master of the universe. And since we assume that proposition P referenced in P itself is true, we can deduce the following true statement:
+        <br/><br/>
+        (1)  <i>If P is true, then my cat is the master of the universe</i><br/><br/>
+        Notice that with statement 1 we just assume that P is true. We need an additional step to actually prove that that is the case. 
+        <br/>I hope you already noticed that statement 1 and P are actually the same sentence. This gives us statement 2: <br/><br/>
+        (2)  <i>Statement 1 is the same as P</i><br/><br/>
+
+        But if statement 1 is the same as P, and statement 1 is true, then:
+        <br/><br/>
+        (3)  <i>P is true</i><br/><br/>
+
+        So following the truth of P, the conclusion must be:<br/><br/>
+
+
+        (4)  <i>My cat is the master of the universe</i><br/><br/>
+
+        Checkmate atheists! Of course, me being enslaved by the cat in question, I knew this fact all along... 
+        </p>
+
+        <h4>More info</h4>
+            <ul>
+                <li><a href="https://plato.stanford.edu/entries/curry-paradox/">https://plato.stanford.edu/entries/curry-paradox/</a></li>
+            </ul>
+
+    </p>
+</div>
+
             <div class="article"><a href="#27-03-2018" class="article_data" id="27-03-2018">27-03-2018</a>
                 <h2>Self-hosting a password manager with pass</h2>
 
