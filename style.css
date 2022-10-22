@@ -1,6 +1,6 @@
 body {
     padding: 20px;
-    font-family: monospace;
+    font-family: Verdana;
     font-size: 10pt;
 }
 
@@ -10,7 +10,7 @@ header {
 }
 
 header > h1 {
-    margin-bottom: 0; 
+    margin-bottom: 5px; 
 }
 
 header > p {
@@ -33,7 +33,7 @@ article {
 } */
 
 li {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 a {
